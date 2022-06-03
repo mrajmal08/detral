@@ -64,7 +64,7 @@
                           <label for="exampleInputDepartment">Department</label>
                           <select class="browser-default form-control" name="department">
                         <option value="{{ $team->department }}" selected>{{ $team->department }}</option>
-                          <option value="developer" selected>Tech & Development</option>
+                          <option value="developer">Tech & Development</option>
                           <option value="marketing">Sales & Marketing</option>
                           <option value="design">Product & Design</option>
                       </select>

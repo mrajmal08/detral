@@ -48,40 +48,17 @@
                                 </p>
                                 <div class="row mt-4">
 
-                                    <div class="col-md-4">
-                                        <img src="{{ url('/') }}/images/ajmal.JPG" alt=""
+                                    @foreach ($developers as $item)
+                                    <div class="col-md-4 mb-5">
+                                        <img src="{{ asset('Admin/ourteam')."/".$item->image }}" alt=""
                                             style="width: 100%; height:365px">
-                                        <h3 class="m-2 text-primary ">Muhammad Ajmal</h3>
-                                        <small>Laravel Developer</small>
-                                        <h4 class="m-1">University of Gujrat </h4>
+                                        <h3 class="m-2 text-primary ">{{ $item->name }}</h3>
+                                        <small>{{ $item->designation }}</small>
+                                        <h4 class="m-1">{{ $item->university }}</h4>
                                     </div>
+                                    @endforeach
 
-                                    <div class="col-md-4  my-2">
-                                        <img src="{{ url('/') }}/images/arsalan.png" alt=""
-                                            style="width: 100%; height:365px">
-                                        <h3 class="m-2 text-primary ">Arslan Anjum</h3>
-                                        <small>Laravel Developer</small>
-                                        <h4 class="m-1">GCUF</h4>
-                                    </div>
-                                    <div class="col-md-4 my-2">
-                                        <img src="{{ url('/') }}/images/hamza.png" alt=""
-                                            style="width: 100%; height:365px">
-                                        <h3 class="m-2 text-primary "> Hamza sarwar</h3>
-                                        <small>Laravel Developer</small>
-                                        <h4 class="m-1">GCUF</h4>
-                                    </div>
                                 </div>
-
-                                <div class="row mt-4">
-                                    <div class="col-md-4  my-2">
-                                        <img src="{{ url('/') }}/images/ahsan.png" alt=""
-                                            style="width: 100%; height:365px">
-                                        <h3 class="m-2 text-primary ">Ahsan Nawaz</h3>
-                                        <small>WordPress Developer</small>
-                                        <h4 class="m-1">VU</h4>
-                                    </div>
-                                </div>
-
 
                             </div>
                             <div class="tab-pane" id="tab_default_2">
@@ -94,62 +71,15 @@
                                 </p>
                                 <div class="row mt-4">
 
-                                    <div class="col-md-4 my-2">
-                                        <img src="{{ url('/') }}/images/wajid.png" alt=""
+                                    @foreach ($marketers as $item)
+                                    <div class="col-md-4 mb-5">
+                                        <img src="{{ asset('Admin/ourteam')."/".$item->image }}" alt=""
                                             style="width: 100%; height:365px">
-                                        <h3 class="m-2 text-primary ">Wajid Ali</h3>
-                                        <small>Marketing Manager</small>
-                                        <h4 class="m-1">PUCIT</h4>
+                                        <h3 class="m-2 text-primary ">{{ $item->name }}</h3>
+                                        <small>{{ $item->designation }}</small>
+                                        <h4 class="m-1">{{ $item->university }}</h4>
                                     </div>
-                                    <div class="col-md-4  my-2">
-                                        <img src="{{ url('/') }}/images/azeem.png" alt=""
-                                            style="width: 100%; height:365px">
-                                        <h3 class="m-2 text-primary ">Muhammad Azeem</h3>
-                                        <small>SEO Off Page Expert</small>
-                                        <h4 class="m-1">PU</h4>
-                                    </div>
-                                    <div class="col-md-4  my-2">
-                                        <img src="{{ url('/') }}/images/wasif.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Wasif Khan</h3>
-                                        <small>SEO Off Page Exp ert</small>
-                                        <h4 class="m-1">UMT</h4>
-                                    </div>
-                                    <div class="col-md-4  my-2 text-center">
-                                        <img src="{{ url('/') }}/images/maryam.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Maryam Ishfaq</h3>
-                                        <small>Bussiness Development</small>
-                                        <h4 class="m-1">UMT</h4>
-                                    </div>
-                                    <div class="col-md-4  my-2">
-                                        <img src="{{ url('/') }}/images/ardil.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Ardil Bin Mansoor</h3>
-                                        <small>Bussiness Development</small>
-                                        <h4 class="m-1">Lahore Garrison University</h4>
-                                    </div>
-                                    <div class="col-md-4  my-2">
-                                        <img src="{{ url('/') }}/images/ansab.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Ansab Imam</h3>
-                                        <small>Bussiness Development</small>
-                                        <h4 class="m-1">PTUT</h4>
-                                    </div>
-                                    <div class="col-md-4  my-2">
-                                        <img src="{{ url('/') }}/images/noman.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Nouman Ali</h3>
-                                        <small>Bussiness Development</small>
-                                        <h4 class="m-1">VU</h4>
-                                    </div>
-                                    <div class="col-md-4  my-2">
-                                        <img src="{{ url('/') }}/images/waseem.png" alt=""
-                                            style=" width:100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Muhammad Waseem</h3>
-                                        <small>Customer Services ( Manager ) </small>
-                                        <h4 class="m-1">PU</h4>
-                                    </div>
+                                    @endforeach
 
                                 </div>
 
@@ -162,42 +92,20 @@
                                     These folks make the designs come to real life they’re real tech-savvy and <br> always
                                     looking for the best possible solutions
                                 </p>
-                                <div class="row">
-
-                                    <div class="col-md-4 text-center">
-                                        <img src="{{ url('/') }}/images/asar.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Asar Rehman</h3>
-                                        <small>Graphic Designer</small>
-                                        <h4 class="m-1">Numal University</h4>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                        <img src="{{ url('/') }}/images/hr.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Anam Salamat</h3>
-                                        <small>HR</small>
-                                        <h4 class="m-1">University of Punjab</h4>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <img src="{{ url('/') }}/images/emaan.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Emaan Chaudhary</h3>
-                                        <small>Content Writer</small>
-                                        <h4 class="m-1">Virtual University</h4>
-                                    </div>
-                                </div>
                                 <div class="row mt-4">
 
-                                    <div class="col-md-4">
-                                        <img src="{{ url('/') }}/images/saba.png" alt=""
-                                            style="width: 100%; height:365px"">
-                    <h3 class=" m-2 text-primary ">Saba Shahzad</h3>
-                                        <small>Content Writer</small>
-                                        <h4 class="m-1">FJMC</h4>
+                                    @foreach ($designers as $item)
+                                    <div class="col-md-4 mb-5">
+                                        <img src="{{ asset('Admin/ourteam')."/".$item->image }}" alt=""
+                                            style="width: 100%; height:365px">
+                                        <h3 class="m-2 text-primary ">{{ $item->name }}</h3>
+                                        <small>{{ $item->designation }}</small>
+                                        <h4 class="m-1">{{ $item->university }}</h4>
                                     </div>
+                                    @endforeach
 
                                 </div>
+
                             </div>
                         </div>
                     </div>

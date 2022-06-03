@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Team;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,10 @@ class HomeController extends Controller
 
     public function ourteam()
     {
-        return view('public.ourteam');
+        $developers = Team::where('department','developer')->get();
+        $designers = Team::where('department','designing')->get();
+        $marketers = Team::where('department','marketing')->get();
+
+        return view('public.ourteam', compact('developers','designers','marketers'));
     }
 }

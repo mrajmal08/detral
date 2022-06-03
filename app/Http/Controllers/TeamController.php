@@ -99,8 +99,6 @@ class TeamController extends Controller
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('Admin/ourteam'), $imageName);
             $team->image = $imageName;
-        } else {
-            $team->image = '';
         }
 
         if ($team->name) {

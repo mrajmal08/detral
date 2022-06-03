@@ -63,7 +63,7 @@
                         <select class="browser-default form-control" name="department">
                         <option value="developer" selected>Tech & Development</option>
                         <option value="marketing">Sales & Marketing</option>
-                        <option value="design">Product & Design</option>
+                        <option value="designing">Product & Design</option>
                     </select>
                 </div>
 

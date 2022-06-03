@@ -17,7 +17,7 @@
                     <button class="rounded-circle p-3 mb-3 bg-primary text-white"><i class="fa fa-android fa-2x" aria-hidden="true"></i></button> <br>
                      <b class="mt-2">App development</b>
                      </div>
-                    
+
                     <p>We offer the creation of computer applications for use on mobile devices such as tablets, smart phones and smart watches. Mobile applications are designed and built for different operating systems..</p>
                         <a href="https://mssolution.pk/blog/mobile-app-development-company-uq10mYFdq2" class="m-2"><b>Read more</b></a>
 
@@ -51,7 +51,7 @@
                      <p>We by using block chain increase trust, security, transparency, and the traceability of data shared across a business network — and deliver cost savings with new efficiencies.</p>
                       <a href="{{ url('/') }}/service/digital-marketing-services-DH0EN65NdX" class="m-2"><b>Read more</b></a>
                 </div>
-                <div class="col-md-4">              
+                <div class="col-md-4">
                     <div class="text-center">
                         <button class="rounded-circle p-3 mb-3 bg-primary text-white"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i></button> <br>
 
@@ -79,7 +79,7 @@
     <!-- Latest From Our Blog -->
     <div class="container text-center py-5">
         <div class="my-5 ">
-            <h1>Latest From Our Blog</h1>  
+            <h1>Latest From Our Blog</h1>
         </div>
         <div class="row my-4">
             @foreach ($list  as $b)
@@ -87,7 +87,7 @@
                     <div class="card " >
                         <p class="m-3"><b>{{ \Illuminate\Support\Str::limit($b->title, 35, $end='') }}</b></p>
                         <img class="card-img pl-2 pr-2" src="{{ url('/') }}/images/{{ $b->image }}" alt="Card image cap" width="auto" height="150px">
-                        
+
                         <div class="card-body">
                         <p>{{$b->created_at}}</p>
                         <p class="card-text" style="color: #6b7c93;">{{ \Illuminate\Support\Str::limit(strip_tags($b->content), 140, $end='...') }}</p>
@@ -95,8 +95,8 @@
                         </div>
                     </div>
                 </div>
-            @endforeach   
-        </div> 
+            @endforeach
+        </div>
     </div>
 
 @endsection
