@@ -16,12 +16,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blogs</h1>
+            <h1>Our Team</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-              <li class="breadcrumb-item active">Blogs</li>
+              <li class="breadcrumb-item active">Team</li>
             </ol>
           </div>
         </div>
@@ -35,7 +35,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <a href="{{ route('blog.create') }}" class="btn btn-success"> Add New Blog </a>
+                <a href="{{ route('team.create') }}" class="btn btn-success"> Add New Team Member </a>
               </div>
 
             </div>
@@ -47,37 +47,38 @@
                   <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Blog</th>
-                    <th>Type</th>
-                    <th>Top Image</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                    <th>University</th>
+                    <th>Image</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                    @foreach ($post as $item)
+                    @foreach ($team as $item)
                     <tr>
 
-                        <td><a href="{{ url('/') }}/{{ $item->type }}/{{ $item->slug }}" target="_blank">{{ $item->title }}</a></td>
-                        <td>{{ \Illuminate\Support\Str::limit(strip_tags($item->content), 100, $end='...') }}</td>
-                        <td>
-                            {{ strtoupper($item->type) }}
-                        </td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->department }}</td>
+                        <td>{{ $item->designation }}</td>
+                        <td>{{ $item->university }}</td>
+
                         <td>
                             <div class="">
-                                <a href="{{ asset('Admin/images')."/".$item->image }}?text=1"
+                                <a href="{{ asset('Admin/ourteam')."/".$item->image }}?text=1"
                                     data-toggle="lightbox"
                                     data-title=""
                                     data-gallery="gallery">
-                                    <img src="{{ asset('Admin/images')."/".$item->image }}?text=1"
+                                    <img src="{{ asset('Admin/ourteam')."/".$item->image }}?text=1"
                                         class="img-fluid" alt=""
                                         style="width:40px" />
                                 </a>
                             </div>
                         </td>
                         <td>
-                        <a href="{{ url('admin/edit-blog/'.$item->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                        <a href="{{ url('admin/delete-blog/'.$item->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="{{ route('team.edit',[$item->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                        <a href="{{ route('team.delete',[$item->id]) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                      @endforeach
@@ -86,9 +87,10 @@
                   <tfoot>
                   <tr>
                     <th>Name</th>
-                    <th>Blog</th>
-                    <th>Type</th>
-                    <th>Top Image</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                    <th>University</th>
+                    <th>Image</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

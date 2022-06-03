@@ -35,14 +35,14 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>4</h3>
+                                <h3>{{ $post }}</h3>
 
                                 <p>Total Blogs</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="{{ route('blogs') }}" class="small-box-footer">More info <i
+                            <a href="{{ route('admin.blogs') }}" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>9</h3>
+                                <h3>{{ $lead }}</h3>
 
                                 <p>Total Leads</p>
                             </div>
@@ -67,7 +67,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>16</h3>
+                                <h3>{{ $contact }}</h3>
 
                                 <p>Total Contacts</p>
                             </div>
@@ -83,14 +83,14 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>9</h3>
+                                <h3>{{ $team }}</h3>
 
                                 <p>Total Team Members</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-videocamera"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="{{ route('ourteam') }}" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

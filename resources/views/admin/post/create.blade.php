@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @push('admincss')
+
 <link rel="stylesheet" href="{{ asset('dashboard/summernote/summernote-bs4.min.css') }}">
+
 @endpush
 @section('content')
       <!-- Navbar -->
@@ -78,17 +80,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputClientCompany">Top image</label>
+                    <label for="inputClientCompany">Top Image</label>
                     <div class="custom-file">
-                        <input type="file" name="top_image" class="custom-file-input"
+                        <input type="file" name="image" class="custom-file-input"
                             id="customFile">
                         <label class="custom-file-label" for="customFile">Choose Image</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputName">News Description</label>
-                        <textarea id="summernote" name="description" rows="4">
+                    <label for="inputName">Blog Content</label>
+                        <textarea id="summernote" name="content" rows="4">
 
                         </textarea>
                 </div>
@@ -135,6 +137,7 @@
 <script src="{{ asset('dashboard/summernote/summernote-bs4.min.js') }}"></script>
 
 
+
 <script>
     $(function () {
       bsCustomFileInput.init();
@@ -146,12 +149,7 @@
         // Summernote
         $('#summernote').summernote()
 
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-            mode: "htmlmixed",
-            theme: "monokai"
-        });
-    })
+})
 </script>
 
 @endpush

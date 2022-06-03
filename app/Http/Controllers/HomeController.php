@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
+
         $list = Post::where('type','blog')->latest()->take(3)->get();
         return view('public.index', compact('list'));
     }
@@ -23,5 +23,10 @@ class HomeController extends Controller
     {
         $list = Post::where('type','blog')->latest()->get();
         return view('public.blogs', compact('list'));
+    }
+
+    public function ourteam()
+    {
+        return view('public.ourteam');
     }
 }

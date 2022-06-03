@@ -2,12 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\Post;
+use Validator;
+use Redirect;
 
 class PostController extends Controller
 {
+
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $post = post::all();
@@ -29,16 +43,30 @@ class PostController extends Controller
     public function insert(Request $request)
     {
 
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:255',
+            'type' => 'required',
+        ]);
+
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
+
+
         $post = new Post();
         if($request->hasFile('image'))
         {
-            $request->validate([
+
+            $validator = Validator::make($request->all(), [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             ]);
 
-            $imageName = time().'.'.$request->image->extension();
+            if($validator->fails()) {
+                return Redirect::back()->withErrors($validator);
+            }
 
-            $request->image->move(public_path('images'), $imageName);
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('Admin/images'), $imageName);
             $post->image = $imageName;
         }
         else
@@ -54,12 +82,12 @@ class PostController extends Controller
         $post->type =  $request->type;
 
         $post->save();
-        return back()->with('success','Blog saved sucessfully.');
+        return redirect()->route('admin.blogs')->with('message','Blog Added sucessfully.');
 
     }
     public function edit($id)
   {
-      $post = post::find($id);
+      $post = Post::find($id);
       return view('admin.post.edit', compact('post'));
 
   }
@@ -70,31 +98,48 @@ class PostController extends Controller
 
         if($request->hasFile('image'))
         {
-            $request->validate([
+            $validator = Validator::make($request->all(), [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             ]);
 
+            if($validator->fails()) {
+                return Redirect::back()->withErrors($validator);
+            }
+
             $imageName = time().'.'.$request->image->extension();
 
-            $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('Admin/images'), $imageName);
             $post->image = $imageName;
         }
 
-        $post->title = $request->input('title');
-        $post->content = $request->input('content');
-        $post->keyword = $request->input('keyword');
-        $post->description = $request->input('description');
-        $post->type =  $request->input('type');
+        if($request->input('title')){
+            $post->title = $request->input('title');
+        }
+        if($request->input('keyword')){
+            $post->keyword = $request->input('keyword');
+        }
+
+        if($request->input('description')){
+            $post->description = $request->input('description');
+        }
+        if($request->input('content')){
+            $post->content = $request->input('content');
+        }
+
+        if($request->input('type')){
+            $post->type = $request->input('type');
+        }
+
         $post->save();
 
-        return back()->with('success','Blog updated sucessfully.');
+        return redirect()->route('admin.blogs')->with('message','Blog updated sucessfully.');
     }
 
     public function destroy($id)
     {
         $post = post::find($id);
         $post->delete();
-        return redirect('admin/blogs');
+        return redirect()->route('admin.blogs')->with('message','Blog Deleted sucessfully.');
     }
 
 }
