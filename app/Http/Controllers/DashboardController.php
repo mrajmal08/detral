@@ -9,4 +9,9 @@ class DashboardController extends Controller
     public function index(){
         return view('layouts.admin');
     }
+
+    public function dashbaord(){
+        return view('home');
+    }
 }
+    

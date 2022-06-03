@@ -44,15 +44,17 @@ Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']
 Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth','isAdmin'])->group(function(){
+
+    Route::get('/admin/dashboard', [DashboardController::class,'dashbaord' ])->name('dashboard');
+
     Route::get('/admin/add-blog', [PostController::class,'create' ]);
-    Route::get('/admin/blogs', [PostController::class,'index' ]);
+    Route::get('/admin/blogs', [PostController::class,'index' ])->name('blogs');
     Route::get('/admin/edit-blog/{id}', [PostController::class,'edit' ]);
     Route::post('/admin/insert-blog', [PostController::class,'insert' ]);
     Route::get('/admin/delete-blog/{id}', [PostController::class,'destroy' ]);
     Route::post('/admin/update-blog/{id}', [PostController::class,'update' ]);
-    Route::get('/admin/dashboard', [DashboardController::class,'index' ]);
-    Route::get('/admin/leads', [LeadsController::class,'index' ]);
-    Route::get('/admin/contact', [ContactController::class,'list' ]);
+    Route::get('/admin/leads', [LeadsController::class,'index' ])->name('leads');
+    Route::get('/admin/contact', [ContactController::class,'list' ])->name('contacts');
 });
 
 Route::get('/clear', function () {

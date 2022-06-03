@@ -13,7 +13,7 @@
                 <strong>{{ $message }}</strong>
         </div>
         @endif
-    
+
         @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.
@@ -52,33 +52,33 @@
                 </div>
                 <div class="form-group">
                     <label>Image</label>
-                    <input type="file" multiple="" name="image" style="position: unset;opacity: 1; width:100%;" class="mt-2">                  
+                    <input type="file" multiple="" name="image" style="position: unset;opacity: 1; width:100%;" class="mt-2">
                 </div>
                 <div class="form-group">
                     <label>Content</label>
-                    <div id="standalone-container">                      
+                    <div id="standalone-container">
                         <div id="editor-container"></div>
                       </div>
-                      
+
                     <div id="editor"></div>
                     <textarea class="form-control d-none" name="content" cols="3" rows="5" id="tosend"></textarea>
-                </div>              
+                </div>
 
                 <div class="form-group">
                     <button class="btn btn-primary">Save</button>
-                   
+
                        {{-- <a href="#"> <button class="btn btn-success float-right"> EDIT</button> </a>
                        <a href="#"> <button class="btn btn-danger float-right">DELETE</button> </a> --}}
-                    
+
                 </div>
-    
+
             </form>
         </div>
-        
+
     </div>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />   
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -110,7 +110,7 @@ var toolbarOptions = [
   ['blockquote', 'code-block'],
   [{ 'header': 1 }, { 'header': 2 }],               // custom button values
   [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-  [{ 'direction': 'rtl' }],    
+  [{ 'direction': 'rtl' }],
   [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
   [{ 'header': [1, 2, 3, 4, 5, 6, false] }],                     // text direction
   [{ 'list': 'ordered'}, { 'list': 'bullet' }],
@@ -156,7 +156,7 @@ var curQuill = new Quill(curQuillDiv[0], {
      var h = document.getElementById("tosend").value.trim();
      curQuill.clipboard.dangerouslyPasteHTML(0, h);
      curQuill.on('text-change', function(delta, oldDelta, source) {
-        var sHTML = document.getElementById("editor").childNodes[0].innerHTML;        
+        var sHTML = document.getElementById("editor").childNodes[0].innerHTML;
         $("#tosend").val(sHTML);
 });
 
@@ -192,7 +192,7 @@ curTableCellIconSpans.hover(function(){
 
 }, function(){
   $(this).parent().children().removeClass("ql-picker-item-highlight");
-}); 
+});
 });
 
   </script>
