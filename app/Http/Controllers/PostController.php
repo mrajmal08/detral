@@ -28,15 +28,16 @@ class PostController extends Controller
 
     public function insert(Request $request)
     {
-        $post = new post();
+
+        $post = new Post();
         if($request->hasFile('image'))
         {
             $request->validate([
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             ]);
-        
-            $imageName = time().'.'.$request->image->extension();  
-        
+
+            $imageName = time().'.'.$request->image->extension();
+
             $request->image->move(public_path('images'), $imageName);
             $post->image = $imageName;
         }
@@ -48,9 +49,10 @@ class PostController extends Controller
         $post->keyword = $request->input('keyword');
         $post->description = $request->input('description');
         $post->slug = Str::slug($request->input('title')) . "-" . Str::random(10);
-    
+
         $post->content = $request->input('content');
         $post->type =  $request->type;
+
         $post->save();
         return back()->with('success','Blog saved sucessfully.');
 
@@ -71,9 +73,9 @@ class PostController extends Controller
             $request->validate([
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             ]);
-        
-            $imageName = time().'.'.$request->image->extension();  
-        
+
+            $imageName = time().'.'.$request->image->extension();
+
             $request->image->move(public_path('images'), $imageName);
             $post->image = $imageName;
         }
@@ -84,7 +86,7 @@ class PostController extends Controller
         $post->description = $request->input('description');
         $post->type =  $request->input('type');
         $post->save();
-        
+
         return back()->with('success','Blog updated sucessfully.');
     }
 
@@ -94,5 +96,5 @@ class PostController extends Controller
         $post->delete();
         return redirect('admin/blogs');
     }
-   
+
 }

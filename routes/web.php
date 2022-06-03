@@ -50,7 +50,7 @@ Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('/admin/add-blog', [PostController::class,'create' ]);
     Route::get('/admin/blogs', [PostController::class,'index' ])->name('blogs');
     Route::get('/admin/edit-blog/{id}', [PostController::class,'edit' ]);
-    Route::post('/admin/insert-blog', [PostController::class,'insert' ]);
+    Route::post('/admin/insert-blog', [PostController::class,'insert' ])->name('blog.store');
     Route::get('/admin/delete-blog/{id}', [PostController::class,'destroy' ]);
     Route::post('/admin/update-blog/{id}', [PostController::class,'update' ]);
     Route::get('/admin/leads', [LeadsController::class,'index' ])->name('leads');

@@ -1,9 +1,5 @@
-
 @extends('layouts.app')
 @section('content')
-<div class="wrapper">
-      <!-- Navbar -->
-
       @include('layouts.navbar')
       @include('layouts.aside')
 
@@ -117,9 +113,6 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
 
 <script>
   $(function () {

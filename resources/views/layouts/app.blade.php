@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Detral</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,6 +16,9 @@
     <link rel="stylesheet" href="{{ asset('dashboard/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dashboard/css/adminlte.min.css') }}">
+
+    @stack('admincss');
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -43,5 +47,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dashboard/js/demo.js') }}"></script>
 <!-- Page specific script -->
+
+@stack('adminjs')
+
 </body>
 </html>
