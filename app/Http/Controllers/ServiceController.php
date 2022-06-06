@@ -9,7 +9,9 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $list = Post::where('type','blog')->latest()->take(3)->get();
-        return view('public.service', compact('list'));
+        $blogs = Post::where('type','blog')->latest()->take(3)->get();
+        $services = Post::where('type','service')->latest()->take(6)->get();
+
+        return view('public.service', compact('blogs', 'services'));
     }
 }

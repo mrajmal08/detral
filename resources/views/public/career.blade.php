@@ -26,8 +26,6 @@
 
                 @foreach ($list2 as $b)
 
-
-
                 <div class="faq-container">
                     <div class="faq-label">
                         <div class="faq-label-text">
@@ -176,7 +174,7 @@
                     <b>Team And Company-Wide Dinners</b>
                     <p>Connect with other teams, make new friends, and enjoy food with company-sponsored dinners.</p>
                 </div>
-            </div>          
+            </div>
         </div>
     </div>
 </div>
@@ -213,8 +211,8 @@
     faqLabel.forEach(item=>item.onclick=()=>{
     //selektuje Answer
         item.nextElementSibling.classList.toggle('active');
-    
-    
+
+
             let labelIcon=item.lastElementChild;
             let icons=labelIcon.lastElementChild;
             icons.classList.toggle('rotate');
