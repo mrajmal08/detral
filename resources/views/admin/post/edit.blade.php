@@ -92,7 +92,7 @@
                 <div class="form-group">
                     <label for="inputName">Blog Content</label>
                         <textarea id="summernote" name="content" rows="4">
-
+                            {!! $post->content !!}
                         </textarea>
                 </div>
 

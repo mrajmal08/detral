@@ -13,10 +13,10 @@
     <!-- OUR SERVICES -->
     <div class="container">
         <div class="py-5 text-center">
-            <h2> <u>{{ $b->title }}</u> </h2>                    
-            <img src="{{url('/')}}/images/{{ $b->image }}" style="width: 100%">
+            <h2> <u>{{ $b->title }}</u> </h2>
+            <img src="{{url('/')}}/Admin/images/{{ $b->image }}" style="width: 100%">
         </div>
-        <p class="m-3">{!! $b->content !!}</p>    
+        <p class="m-3">{!! $b->content !!}</p>
     </div>
     <!-- END out -->
 
@@ -24,7 +24,7 @@
     <div class="container text-center py-5">
         <div class="my-5 ">
 
-            <h1>Latest From Our Blog</h1> 
+            <h1>Latest From Our Blog</h1>
 
 
         </div>
@@ -34,7 +34,7 @@
                     <div class="card " >
                         <p class="m-3"><b>{{ \Illuminate\Support\Str::limit($b->title, 35, $end='') }}</b></p>
                         <img class="card-img pl-2 pr-2" src="{{ url('/') }}/images/{{ $b->image }}" alt="Card image cap" width="auto" height="150px">
-                        
+
                         <div class="card-body">
                         <p>{{$b->created_at}}</p>
                         <p class="card-text" style="color: #6b7c93;">{{ \Illuminate\Support\Str::limit(strip_tags($b->content), 140, $end='...') }}</p>
@@ -42,12 +42,12 @@
                         </div>
                     </div>
                 </div>
-            @endforeach     
-        </div> 
+            @endforeach
+        </div>
     </div>
 
 
-   
+
 
 
 

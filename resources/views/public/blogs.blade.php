@@ -11,14 +11,14 @@
 </div>
     <!-- Latest From Our Blog -->
     <div class="container text-center py-5">
-        
+
         <div class="row my-4">
             @foreach ($list  as $b)
                 <div class="col-sm-4 my-2">
                     <div class="card " >
                         <p class="m-3"><b>{{ \Illuminate\Support\Str::limit($b->title, 35, $end='') }}</b></p>
                         <img class="card-img pl-2 pr-2" src="{{ url('/') }}/images/{{ $b->image }}" alt="Card image cap" width="auto" height="150px">
-                        
+
                         <div class="card-body">
                         <p>{{$b->created_at}}</p>
                         <p class="card-text" style="color: #6b7c93;">{{ \Illuminate\Support\Str::limit(strip_tags($b->content), 140, $end='...') }}</p>
@@ -26,8 +26,8 @@
                         </div>
                     </div>
                 </div>
-            @endforeach   
-        </div> 
+            @endforeach
+        </div>
     </div>
 
 @endsection

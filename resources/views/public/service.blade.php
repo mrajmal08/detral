@@ -41,7 +41,7 @@
                 <div class="col-sm-4 my-2">
                     <div class="card " >
                         <p class="m-3"><b>{{ \Illuminate\Support\Str::limit($b->title, 35, $end='') }}</b></p>
-                        <img class="card-img pl-2 pr-2" src="{{ url('/') }}/images/{{ $b->image }}" alt="Card image cap" width="auto" height="150px">
+                        <img class="card-img pl-2 pr-2" src="{{ url('/') }}/Admin/images/{{ $b->image }}" alt="Card image cap" width="auto" height="150px">
 
                         <div class="card-body">
                         <p>{{$b->created_at}}</p>

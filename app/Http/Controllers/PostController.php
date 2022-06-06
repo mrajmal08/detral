@@ -33,6 +33,7 @@ class PostController extends Controller
     }
 
     public function public($slug){
+
         $list = Post::where('type','blog')->latest()->take(3)->get();
         $b = post::where('slug',$slug)->get()->first();
         if($b == null)
