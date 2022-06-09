@@ -84,7 +84,6 @@
                         <div class="small-box bg-danger">
                             <div class="inner">
                                 <h3>{{ $team }}</h3>
-
                                 <p>Total Team Members</p>
                             </div>
                             <div class="icon">

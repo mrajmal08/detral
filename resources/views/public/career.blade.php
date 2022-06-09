@@ -24,8 +24,8 @@
 
                 </div>
 
-                @foreach ($list2 as $b)
-
+               @if($jobs->count() > 0)
+                @foreach ($jobs as $b)
                 <div class="faq-container">
                     <div class="faq-label">
                         <div class="faq-label-text">
@@ -36,19 +36,25 @@
                                 <i class="fa fa-arrow-down" aria-hidden="true"></i>
                             </span>
                         </div>
-
                     </div>
                     <div class="faq-answer ">
                         <div class="faq-answer-content">
                             <b> Job Role:</b> <br>
-
                             {!! $b->content !!}
-
                         </div>
-
                     </div>
                 </div>
                 @endforeach
+
+                @else
+
+                <div class="">
+                    <div class="text-center">
+                        <b style="color: brown"> There is no job available at this time</b> <br>
+                    </div>
+                </div>
+
+                @endif
 
             </div>
         </div>
@@ -179,30 +185,6 @@
     </div>
 </div>
 
-<!-- Latest From Our Blog -->
-<div class="container text-center pb-5">
-    <div class="my-5 ">
-        <h1>Latest From Our Blog</h1>
-    </div>
-    <div class="row my-4">
-        @foreach ($list as $b)
-        <div class="col-sm-4 my-2">
-            <div class="card ">
-                <p class="m-3"><b>{{ \Illuminate\Support\Str::limit($b->title, 35, $end='') }}</b></p>
-                <img class="card-img pl-2 pr-2" src="{{ url('/') }}/images/{{ $b->image }}" alt="Card image cap"
-                    width="auto" height="150px">
-
-                <div class="card-body">
-                    <p>{{$b->created_at}}</p>
-                    <p class="card-text" style="color: #6b7c93;">{{
-                        \Illuminate\Support\Str::limit(strip_tags($b->content), 140, $end='...') }}</p>
-                    <a href="{{ url('/') }}/blog/{{$b->slug}}" class="m-2"><b>Read more</b></a>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-</div>
 
 
 <script>

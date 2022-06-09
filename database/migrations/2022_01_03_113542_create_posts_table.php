@@ -22,6 +22,8 @@ class CreatePostsTable extends Migration
             $table->string('type')->nullable();
             $table->string('keyword')->nullable();
             $table->string('description')->nullable();
+            $table->string('job_expire_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

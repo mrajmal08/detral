@@ -22,7 +22,7 @@ Route::get('/contact',[Admin\ContactController::class, 'index'])->name('contact'
 Route::post('/contact',[Admin\ContactController::class, 'insert']);
 Route::get('/ourteam',[Admin\HomeController::class, 'ourteam'])->name('ourteam');
 Route::get('/service',[Admin\ServiceController::class, 'index'])->name('service');
-Route::get('/blog/{slug}',[Admin\PostController::class, 'public'])->name('blog');
+Route::get('/blog/{slug}',[Admin\HomeController::class, 'public'])->name('blog');
 Route::get('/service/{slug}',[Admin\PostController::class, 'public'])->name('serviceslug');
 Route::get('/page/{slug}',[Admin\PostController::class, 'public'])->name('page');
 Route::get('/job/{slug}',[Admin\PostController::class, 'public'])->name('job');
@@ -58,6 +58,10 @@ Route::middleware(['auth','isAdmin'])->group(function(){
         Route::get('/edit-team/{id}', [Admin\TeamController::class,'edit' ])->name('team.edit');
         Route::post('/update-team/{id}', [Admin\TeamController::class,'update' ])->name('team.update');
         Route::get('/delete-team/{id}', [Admin\TeamController::class,'destroy' ])->name('team.delete');
+
+        // Expired Jobs Routes
+        Route::get('/expired-jobs', [Admin\PostController::class,'expiredJobs' ])->name('expired.jobs');
+
 
 
 });

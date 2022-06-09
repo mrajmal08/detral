@@ -32,14 +32,7 @@ class PostController extends Controller
         return view('admin.post.create');
     }
 
-    public function public($slug){
 
-        $list = Post::where('type','blog')->latest()->take(3)->get();
-        $b = post::where('slug',$slug)->get()->first();
-        if($b == null)
-            abort(404);
-        return view('public.blog',compact('b','list'));
-    }
 
     public function insert(Request $request)
     {
@@ -80,7 +73,18 @@ class PostController extends Controller
         $post->slug = Str::slug($request->input('title')) . "-" . Str::random(10);
 
         $post->content = $request->input('content');
+
+        if($request->type == 'job'){
+
+        $todayDate = date("Y/m/d") ;
+        $job_expire_at =  date('Y/m/d',strtotime('+30 days',strtotime(str_replace('/', '-', $todayDate))));
+        $post->job_expire_at = $job_expire_at;
         $post->type =  $request->type;
+
+        }
+        else{
+            $post->type =  $request->type;
+        }
 
         $post->save();
         return redirect()->route('admin.blogs')->with('message','Blog Added sucessfully.');
@@ -141,6 +145,13 @@ class PostController extends Controller
         $post = post::find($id);
         $post->delete();
         return redirect()->route('admin.blogs')->with('message','Blog Deleted sucessfully.');
+    }
+
+    public function expiredJobs(){
+
+        $post = post::onlyTrashed()->get();
+
+        return view('admin.jobs.index', compact('post'));
     }
 
 }

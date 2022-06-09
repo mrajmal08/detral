@@ -26,6 +26,15 @@ class HomeController extends Controller
         return view('public.blogs', compact('list'));
     }
 
+    public function public($slug){
+
+        $list = Post::where('type','blog')->latest()->take(3)->get();
+        $b = post::where('slug',$slug)->get()->first();
+        if($b == null)
+            abort(404);
+        return view('public.blog',compact('b','list'));
+    }
+
     public function ourteam()
     {
         $developers = Team::where('department','developer')->get();
